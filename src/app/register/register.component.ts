@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
@@ -12,17 +12,17 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formLogin: FormGroup,
     private http: HttpClient,
     private router: Router
   ) {
   }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      name: '',
-      email: '',
-      password: ''
+    this.form = new FormGroup({
+      name: new FormControl(),
+      email: new FormControl(),
+      password: new FormControl()
     });
   }
 
